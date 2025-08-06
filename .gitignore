@@ -1,0 +1,12 @@
+# Ignore executable files
+*.exe
+
+# ignore objective files
+*.o
+
+# ignore json setting files
+*.json
+
+
+
+
