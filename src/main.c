@@ -3,7 +3,9 @@
 #include <stdint.h>
 #include <time.h>
 
-#define MAX_VALUE 2
+#define MAX_VALUE 3
+#define MIN_VALUE 1
+
 
 enum choice
 {
@@ -53,7 +55,7 @@ int main()
 
         // Computer choice
         srand(time(0));
-        c_choice = rand() % (MAX_VALUE + 1);
+        c_choice = rand() % (MAX_VALUE - MIN_VALUE + 1) + MIN_VALUE;
 
         switch (c_choice)
         {
@@ -74,19 +76,19 @@ int main()
 
         // Decision part
         if(u_choice == ROCK && c_choice == PAPER){ 
-            printf("Computer Won the game. \n");
+            printf("\033[1;32mComputer Won the game. \033[0m\n");
         } else if(u_choice == PAPER && c_choice == ROCK){
-            printf("You Won the game. \n");   
+            printf("\033[1;32mYou Won the game. \033[0m\n");   
         } else if(u_choice == ROCK && c_choice == SCISSOR){
-            printf("You Won the game. \n"); 
+            printf("\033[1;32mYou Won the game. \033[0m\n"); 
         } else if(u_choice == SCISSOR && c_choice == ROCK){
-            printf("Computer Won the game. \n"); 
+            printf("\033[1;32mComputer Won the game. \033[0m\n");
         } else if(u_choice == PAPER && c_choice == SCISSOR){
-            printf("Computer Won the game. \n"); 
+           printf("\033[1;32mComputer Won the game. \033[0m\n"); 
         } else if(u_choice == SCISSOR && c_choice == PAPER){
-            printf("You Won the game. \n"); 
+            printf("\033[1;32mYou Won the game. \033[0m\n");  
         } else {
-            printf("Game Fowl\n");
+            printf("\033[1;31mGame Fowl\033[0m\n");
         }
   
         // Repeat part
@@ -97,3 +99,4 @@ int main()
 
     return 0;
 }
+
