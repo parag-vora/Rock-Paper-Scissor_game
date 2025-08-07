@@ -6,4 +6,4 @@
 
 void Finaldecision(uint8_t u_choice, uint8_t c_choice);
 
-#endif // MAIN_H
+#endif //LOGIC_FUNCTION_H
