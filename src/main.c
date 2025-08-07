@@ -6,6 +6,7 @@
 #define MAX_VALUE 3
 #define MIN_VALUE 1
 
+void Finaldecision(uint8_t u_choice, uint8_t c_choice);
 
 enum choice
 {
@@ -75,21 +76,7 @@ int main()
         printf("computer choice is: %s \n", c_choice_ptr);
 
         // Decision part
-        if(u_choice == ROCK && c_choice == PAPER){ 
-            printf("\033[1;32mComputer Won the game. \033[0m\n");
-        } else if(u_choice == PAPER && c_choice == ROCK){
-            printf("\033[1;32mYou Won the game. \033[0m\n");   
-        } else if(u_choice == ROCK && c_choice == SCISSOR){
-            printf("\033[1;32mYou Won the game. \033[0m\n"); 
-        } else if(u_choice == SCISSOR && c_choice == ROCK){
-            printf("\033[1;32mComputer Won the game. \033[0m\n");
-        } else if(u_choice == PAPER && c_choice == SCISSOR){
-           printf("\033[1;32mComputer Won the game. \033[0m\n"); 
-        } else if(u_choice == SCISSOR && c_choice == PAPER){
-            printf("\033[1;32mYou Won the game. \033[0m\n");  
-        } else {
-            printf("\033[1;31mGame Fowl\033[0m\n");
-        }
+        Finaldecision(u_choice, c_choice);
   
         // Repeat part
         printf("Do you want to play again\n 1. NO\n 2. YES: ");
@@ -100,3 +87,20 @@ int main()
     return 0;
 }
 
+void Finaldecision(uint8_t u_choice, uint8_t c_choice)
+{
+    if (u_choice == c_choice)
+    {
+        printf("\033[1;31mGame Fowl\033[0m\n");
+    }
+    else if ((u_choice == ROCK && c_choice == SCISSOR) ||
+             (u_choice == PAPER && c_choice == ROCK) ||
+             (u_choice == SCISSOR && c_choice == PAPER))
+    {
+        printf("\033[1;32mYou Won the game. \033[0m\n");
+    }
+    else
+    {
+        printf("\033[1;32mComputer Won the game. \033[0m\n");
+    }
+}
